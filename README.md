@@ -9,8 +9,8 @@
 
 ## Authors
 
-- [Justin Hoang](justinhoang@mines.edu)
-- [James Vongphasouk](jvongphasouk@mines.edu)
+- [Justin Hoang](mailto:justinhoang@mines.edu)
+- [James Vongphasouk](mailto:jvongphasouk@mines.edu)
 
 ## Concept
 
