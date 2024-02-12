@@ -2,9 +2,9 @@
 layout: post
 title: first post
 subtitle: first
-cover-img: /assets/images/concept_art.jpg
-thumbnail-img: /assets/imahes/cover_art.jpg
-share-img: /assets/img/cover_art.jpg
+cover-img: images/concept_art.jpg
+thumbnail-img: images/cover_art.jpg
+share-img: images/cover_art.jpg
 tags: [dev]
 author: James Vongphasouk
 ---
