@@ -5,7 +5,7 @@
   https://drive.google.com/file/d/1nxvdXasP-HsRCt62cHK3wF_pIrJpYx5T/view  
 -->
 
-![Cover Art](images/cover_art.png)
+![Cover Art](docs/images/cover_art.png)
 
 ## Authors
 
@@ -17,7 +17,7 @@
 Player will glide through the mountains and land successfully in daredevil style!
 ## Mechanics
 
-![Game Mechanics](images/concept_art.png)
+![Game Mechanics](docs/images/concept_art.png)
 
 ### Core Gameplay
 
