@@ -10,6 +10,7 @@ author: James Vongphasouk
 ---
 
 # First Post
+
 This is the first post of the blog. Welcome to the JUNGLE
 
 
