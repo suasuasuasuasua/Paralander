@@ -13,5 +13,7 @@ author: James Vongphasouk
 
 This is the first post of the blog. Welcome to the JUNGLE
 
+test image
 
+![cover-art]{{ '/images/cover_art.png' | relative_url }}
 ```
