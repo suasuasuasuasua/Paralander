@@ -14,6 +14,7 @@
 
 ## Concept
 
+Player will glide through the mountains and land successfully in daredevil style!
 ## Mechanics
 
 ![Game Mechanics](images/concept_art.png)
