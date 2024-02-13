@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Paralander Game Design Document
+title: Game Design Document
 ---
 
 ## Authors
