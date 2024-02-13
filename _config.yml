@@ -20,8 +20,8 @@ author: Justin Hoang, James Vongphasouk
 ###############################################
 
 navbar-links:
-  About Me: "aboutme"
   Game Design Document: "gamedesigndoc"
+  About Me: "aboutme"
 
 ################
 # --- Logo --- #

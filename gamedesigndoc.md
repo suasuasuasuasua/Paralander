@@ -1,10 +1,12 @@
 ---
 layout: page
-title: Game Design Document
-subtitle: The Paralander GDD
+title: Paralander Game Design Document
 ---
 
-# Paralander
+## Authors
+
+- [Justin Hoang](mailto:justinhoang@mines.edu)
+- [James Vongphasouk](mailto:jvongphasouk@mines.edu)
 
 <!-- 
   Silent Hill 2 Design Document
@@ -13,14 +15,11 @@ subtitle: The Paralander GDD
 
 ![Cover Art]({{ '/assets/img/cover_art.png' | relative_url }})
 
-## Authors
-
-- [Justin Hoang](mailto:justinhoang@mines.edu)
-- [James Vongphasouk](mailto:jvongphasouk@mines.edu)
-
 ## Concept
 
-Player will glide through the mountains and land successfully in daredevil style!
+Player will glide through the mountains and land successfully in daredevil
+style!
+
 ## Mechanics
 
 ![Game Mechanics]({{ '/assets/img/concept_art.png' | relative_url }})
