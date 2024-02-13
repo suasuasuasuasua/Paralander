@@ -1,3 +1,9 @@
+---
+layout: page
+title: Game Design Document
+subtitle: The Paralander GDD
+---
+
 # Paralander
 
 <!-- 
