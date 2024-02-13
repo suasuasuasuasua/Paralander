@@ -253,11 +253,10 @@ defaults:
 
 # Exclude these files from production site
 exclude:
-  - docs/CHANGELOG.md
-  - docs/CNAME
-  - docs/Gemfile
-  - docs/Gemfile.lock
-  - docs/LICENSE
+  - CHANGELOG.md
+  - CNAME
+  - Gemfile
+  - Gemfile.lock
   - README.md
 
 plugins:
