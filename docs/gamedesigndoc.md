@@ -11,7 +11,7 @@ subtitle: The Paralander GDD
   https://drive.google.com/file/d/1nxvdXasP-HsRCt62cHK3wF_pIrJpYx5T/view  
 -->
 
-![Cover Art](docs/images/cover_art.png)
+![Cover Art]({{ '/images/cover_art.png' | relative_url}})
 
 ## Authors
 
@@ -23,7 +23,7 @@ subtitle: The Paralander GDD
 Player will glide through the mountains and land successfully in daredevil style!
 ## Mechanics
 
-![Game Mechanics](docs/images/concept_art.png)
+![Game Mechanics]({{ '/images/concept_art.png' | relative_url}})
 
 ### Core Gameplay
 
