@@ -12,4 +12,4 @@ This is the first post of the blog. Welcome to the JUNGLE
 
 test image
 
-[coverart]({{ 'images/cover_art.png' | relative_url }})
+![coverart]({{ 'images/cover_art.png' | relative_url }})
