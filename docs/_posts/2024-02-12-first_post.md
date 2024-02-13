@@ -1,12 +1,10 @@
 ---
 layout: post
-title: first post
-subtitle: first
+title: First dev post of paralander
+subtitle: fly through the mountains!
 tags: [dev]
 author: James Vongphasouk
 ---
-
-# First Post
 
 This is the first post of the blog. Welcome to the JUNGLE
 
