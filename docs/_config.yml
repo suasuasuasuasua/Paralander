@@ -253,14 +253,12 @@ defaults:
 
 # Exclude these files from production site
 exclude:
-  - CHANGELOG.md
-  - CNAME
-  - Gemfile
-  - Gemfile.lock
-  - LICENSE
+  - docs/CHANGELOG.md
+  - docs/CNAME
+  - docs/Gemfile
+  - docs/Gemfile.lock
+  - docs/LICENSE
   - README.md
-  - screenshot.png
-  - docs/
 
 plugins:
   - jekyll-paginate
