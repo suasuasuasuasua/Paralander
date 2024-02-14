@@ -13,8 +13,6 @@ title: Game Design Document
   https://drive.google.com/file/d/1nxvdXasP-HsRCt62cHK3wF_pIrJpYx5T/view  
 -->
 
-![Cover Art]({{ '/assets/img/cover_art.png' | relative_url }})
-
 ## Concept
 
 Player will glide through the mountains and land successfully in daredevil
@@ -39,7 +37,11 @@ The player will eventually land in two ways: safely or not safely. The win
 condition depends on the game-mode that was selected. In the classic game, the
 goal is to land as gently and elegantly as possible; in a reversed game-mode, to
 goal is to land but to cause as much damage as possible to the player model.
-Players will be awarded points accordingly and given a rating.
+Players will be awarded points accordingly and given a rating. There will be
+multiple goals that the player can land at. Riskier locations will award the
+player more points.
+
+![Landing Locations]({{ '/assets/img/concept_art.png' | relative_url }})
 
 A stretch goal for the project is to give the player freedom to change the
 material composition and shape of the wing. Different materials and
@@ -65,4 +67,4 @@ want to balance the fun-factor and interactivity for the player.
 
 ## Art
 
-![Game Mechanics]({{ '/assets/img/concept_art.png' | relative_url }})
+![Cover Art]({{ '/assets/img/cover_art.png' | relative_url }})
