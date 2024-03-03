@@ -124,6 +124,30 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &69365212 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9130009997104512392, guid: bfd644a7bccd7f54fa7fc3378932bf9c,
+    type: 3}
+  m_PrefabInstance: {fileID: 6196871533931206447}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &69365216
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 69365212}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df6c0c5544cbf41b187c14fc8400fab8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sensitivity: 0
+  playerSpeed: 2
+  glideGravity: -1
+  glideSpeed: 5
+  turnSpeed: 2
+  initialLiftForce: 100
 --- !u!1001 &96687263
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1883,7 +1907,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd6043bde05a7fc4cba197d06915c1e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Damping: {x: 3, y: 0.5, z: 3}
+  Damping: {x: 3, y: 0.1, z: 3}
   ShoulderOffset: {x: 0.5, y: -0.4, z: -2}
   VerticalArmLength: 0.4
   CameraSide: 1
@@ -3259,7 +3283,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1575750083}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a09da1e3c9ffd4e54a7227d2d67b3372, type: 3}
+  m_Script: {fileID: 11500000, guid: 7b453bd0fdbd545268d341cb00ba8131, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!65 &1575750085
@@ -4331,11 +4355,16 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6196871533986448471, guid: bfd644a7bccd7f54fa7fc3378932bf9c, type: 3}
     m_RemovedGameObjects:
     - {fileID: 6196871533153132106, guid: bfd644a7bccd7f54fa7fc3378932bf9c, type: 3}
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 9130009997104512392, guid: bfd644a7bccd7f54fa7fc3378932bf9c,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 69365216}
   m_SourcePrefab: {fileID: 100100000, guid: bfd644a7bccd7f54fa7fc3378932bf9c, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
