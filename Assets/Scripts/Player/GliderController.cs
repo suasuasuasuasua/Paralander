@@ -24,7 +24,7 @@ namespace Player
         /// </summary>
         [Header("Plane Stats")]
         [Tooltip("How much the throttle rampus up or down")]
-        public float throttleIncrement = 0.1f;
+        public float throttleIncrement = 1.0f;
 
         /// <summary>
         /// Determines the responsiveness of the glider to the player's input.
@@ -44,7 +44,7 @@ namespace Player
         {
             get
             {
-                return rb.mass * responsiveness;
+                return rb.mass * responsiveness / 10.0f;
             }
         }
 
