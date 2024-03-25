@@ -1012,7 +1012,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 9045494f93452344d811e0d183904816, type: 2}
+  - {fileID: 2100000, guid: 88cbfa6bccf891e4f9cb3da49a19dfee, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1113,8 +1113,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65477b0391eb54730ae113ea4f47ca4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  throttleIncrement: 0.1
   maxThrust: 200
+  throttleIncrement: 0.1
   responsiveness: 40
   lift: 135
   hud: {fileID: 1427504881}
