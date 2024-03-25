@@ -1,20 +1,34 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class TargetScoring : MonoBehaviour
+namespace Player
 {
-    private int score = 0;
-    public TextMeshProUGUI scoreText;
-
-        private void OnTriggerEnter(Collider other) 
+    public class TargetScoring : MonoBehaviour
     {
-        if (other.transform.tag == "Target") 
+        /// <summary>
+        /// Track the player's score
+        /// </summary>
+        private int score = 0;
+
+        /// <summary>
+        /// The amount of points that the target is worth
+        /// </summary>
+        private const int targetValue = 50;
+        public TextMeshProUGUI scoreText;
+
+        /// <summary>
+        /// If the player collides with a target, then the player gets 50 points
+        /// </summary>
+        /// <param name="other"></param>
+        private void OnTriggerEnter(Collider other)
         {
-            score += 50;
-            scoreText.text = "Score: " + score.ToString("F0");
-            Destroy(other.gameObject);
+            if (other.transform.tag == "Target")
+            {
+                score += targetValue;
+                scoreText.text = $"Score: {score:F0}";
+
+                Destroy(other.gameObject);
+            }
         }
     }
 }
