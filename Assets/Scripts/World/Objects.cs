@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Objects : MonoBehaviour
@@ -12,7 +10,7 @@ public class Objects : MonoBehaviour
 
     public void FindLand()
     {
-        Ray ray = new Ray(transform.position, -transform.up);
+        Ray ray = new (transform.position, -transform.up);
         RaycastHit hitInfo;
         if (Physics.Raycast(ray, out hitInfo))
         {
