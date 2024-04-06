@@ -33,7 +33,7 @@ namespace Player
         /// be more "twitchy" so to speak.
         /// </summary>
         [Tooltip("Responsiveness")]
-        public float responsiveness = 1.0f;
+        public float responsiveness = 80.0f;
 
         /// <summary>
         /// A calculated value that determines how much the glider responds to
@@ -99,12 +99,12 @@ namespace Player
             pitch = Input.GetAxis("Pitch");
             yaw = Input.GetAxis("Yaw");
 
-            //handle throttle value being sure to clamp between 0 and 100.
+            // Handle throttle value being sure to clamp between 0 and 100.
             if (Input.GetKey(KeyCode.Space))
             {
                 throttle += throttleIncrement;
             }
-            else if (Input.GetKey(KeyCode.LeftControl))
+            else if (Input.GetKey(KeyCode.LeftShift))
             {
                 throttle -= throttleIncrement;
             }
