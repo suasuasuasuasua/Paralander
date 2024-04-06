@@ -126,7 +126,6 @@ namespace Player
         /// </summary>
         private void FixedUpdate()
         {
-
             // Apply forces to our glider
             rb.AddForce(transform.forward * maxThrust * throttle);
 
