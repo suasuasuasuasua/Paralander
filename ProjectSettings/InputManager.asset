@@ -9,10 +9,10 @@ InputManager:
     m_Name: Roll
     descriptiveName: 
     descriptiveNegativeName: 
-    negativeButton: left
-    positiveButton: right
-    altNegativeButton: a
-    altPositiveButton: d
+    negativeButton: 
+    positiveButton: 
+    altNegativeButton: q
+    altPositiveButton: e
     gravity: 3
     dead: 0.001
     sensitivity: 3
@@ -297,10 +297,10 @@ InputManager:
     m_Name: Yaw
     descriptiveName: 
     descriptiveNegativeName: 
-    negativeButton: q
-    positiveButton: e
-    altNegativeButton: 
-    altPositiveButton: 
+    negativeButton: a
+    positiveButton: d
+    altNegativeButton: left
+    altPositiveButton: right
     gravity: 3
     dead: 0.001
     sensitivity: 3
