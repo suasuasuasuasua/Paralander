@@ -580,6 +580,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!114 &594266433 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8913521364743848203, guid: ee4c86a11cc774eb0bedead40edb3fb3,
+    type: 3}
+  m_PrefabInstance: {fileID: 7776703440942861739}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &642934338
 GameObject:
   m_ObjectHideFlags: 0
@@ -738,7 +750,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1995173374}
+      - m_Target: {fileID: 1887925710}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
@@ -2199,6 +2211,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1852354391}
   m_CullTransparentMesh: 1
+--- !u!1 &1887925710 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1631650520264350522, guid: ee4c86a11cc774eb0bedead40edb3fb3,
+    type: 3}
+  m_PrefabInstance: {fileID: 7776703440942861739}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1903598351
 GameObject:
   m_ObjectHideFlags: 0
@@ -2379,12 +2397,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1969346346}
   m_CullTransparentMesh: 1
---- !u!1 &1995173374 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1143538710264500366, guid: ee4c86a11cc774eb0bedead40edb3fb3,
-    type: 3}
-  m_PrefabInstance: {fileID: 7776703440942861739}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2014063509
 GameObject:
   m_ObjectHideFlags: 0
@@ -2626,13 +2638,18 @@ PrefabInstance:
     - target: {fileID: 1143538710264500366, guid: ee4c86a11cc774eb0bedead40edb3fb3,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1159978361517464629, guid: ee4c86a11cc774eb0bedead40edb3fb3,
         type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: ChangeResolution
       objectReference: {fileID: 0}
+    - target: {fileID: 1244897008006840169, guid: ee4c86a11cc774eb0bedead40edb3fb3,
+        type: 3}
+      propertyPath: volumeSlider
+      value: 
+      objectReference: {fileID: 594266433}
     - target: {fileID: 1244897008006840169, guid: ee4c86a11cc774eb0bedead40edb3fb3,
         type: 3}
       propertyPath: settingsMenuOptions
@@ -2642,6 +2659,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: ChangeQuality
+      objectReference: {fileID: 0}
+    - target: {fileID: 4442802883622790580, guid: ee4c86a11cc774eb0bedead40edb3fb3,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8964811314059913751, guid: ee4c86a11cc774eb0bedead40edb3fb3,
         type: 3}
@@ -2741,6 +2763,11 @@ PrefabInstance:
     - target: {fileID: 8964811314059913751, guid: ee4c86a11cc774eb0bedead40edb3fb3,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9139868516001489377, guid: ee4c86a11cc774eb0bedead40edb3fb3,
+        type: 3}
+      propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

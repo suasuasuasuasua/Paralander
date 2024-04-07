@@ -2,12 +2,35 @@ using UnityEngine;
 using TMPro;
 using System.Linq;
 using UnityEngine.UI;
-using System.Collections.Generic;
+using System.Globalization;
 
 namespace Menus
 {
     public class SettingsMenu : MonoBehaviour
     {
+        public GameObject settingsPanel;
+
+        // TODO: actually make the sliders change the volume
+        /// <summary>
+        /// A slider for the volume
+        /// </summary>
+        public Slider volumeSlider;
+
+        /// <summary>
+        /// The text representation of the volume slider
+        /// </summary>
+        public TextMeshProUGUI volumeSliderText;
+
+        /// <summary>
+        /// A dropdown for the resolution options
+        /// </summary>
+        public TMP_Dropdown resolutionDropdown;
+
+        /// <summary>
+        /// A dropdown for the quality options
+        /// </summary>
+        public TMP_Dropdown qualityDropdown;
+
         /// <summary>
         /// A toggle for fullscreen mode
         /// </summary>
@@ -27,20 +50,46 @@ namespace Menus
         }
 
         /// <summary>
-        /// A dropdown for the resolution options
+        /// A toggle for vsync
         /// </summary>
-        public TMP_Dropdown resolutionDropdown;
+        public Toggle vsyncToggle;
 
-        /// <summary>
-        /// A dropdown for the quality options
-        /// </summary>
-        public TMP_Dropdown qualityDropdown;
-
-        private void Awake()
+        public int VSync
         {
-            // Update the resolution and quality dropdowns
+            get
+            {
+                return vsyncToggle.isOn
+                    ? 1
+                    : 0;
+            }
+        }
+
+        public void Start()
+        {
+            UpdateVolume(SettingsMenuOptions.Instance.CurrentVolume);
             UpdateResolution();
             UpdateQuality();
+
+            ApplyChanges();
+        }
+
+        private void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                settingsPanel.SetActive(false);
+            }
+        }
+
+        /// <summary>
+        /// Set the current volume to the slider's value
+        /// </summary>
+        /// <param name="value"></param>
+        private void UpdateVolume(float value)
+        {
+            volumeSliderText.text = value.ToString(CultureInfo.CurrentCulture);
+            // Update the global volume as well as the slider's value
+            SettingsMenuOptions.Instance.CurrentVolume = volumeSlider.value = value;
         }
 
         /// <summary>
@@ -127,6 +176,9 @@ namespace Menus
                 FullScreenMode,
                 resolution.refreshRateRatio
             );
+
+            // Update the vsync settings
+            QualitySettings.vSyncCount = VSync;
         }
     }
 }

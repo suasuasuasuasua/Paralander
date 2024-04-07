@@ -35,7 +35,7 @@ namespace Menus
         /// <summary>
         /// The current volume of the game
         /// </summary>
-        public int CurrentVolume { get; set; }
+        public float CurrentVolume { get; set; }
 
         /// <summary>
         /// Enforce a singleton pattern with the settings menu
