@@ -14,7 +14,9 @@ namespace UI
         /// <param name="name"></param>
         public void LoadScene(string name)
         {
-            SceneManager.LoadScene(name);
+            // Use the asynchronous version to avoid pauses and perfomrance
+            // hiccups
+            SceneManager.LoadSceneAsync(name);
         }
 
         /// <summary>
