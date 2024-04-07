@@ -28,7 +28,7 @@ namespace Menus
         /// <summary>
         /// The current quality level index
         /// </summary>
-        public int QualityIndex { get; set; }
+        public int SelectedQualityIndex { get; set; }
 
         public AudioSource AudioSource { get; private set; }
 
@@ -87,10 +87,9 @@ namespace Menus
         private void SetupQualityLevels()
         {
             QualityLevels = QualitySettings.names
-                .Reverse()
                 .ToList()
             ;
-            QualityIndex = QualitySettings.GetQualityLevel();
+            SelectedQualityIndex = QualitySettings.GetQualityLevel();
         }
 
         /// <summary>

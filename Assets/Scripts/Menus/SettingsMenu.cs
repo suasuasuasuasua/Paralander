@@ -2,20 +2,29 @@ using UnityEngine;
 using TMPro;
 using System.Linq;
 using UnityEngine.UI;
+using System.Collections.Generic;
 
 namespace Menus
 {
     public class SettingsMenu : MonoBehaviour
     {
         /// <summary>
-        /// Track the settings menu options singleton instance
-        /// </summary>
-        public SettingsMenuOptions settingsMenuOptions;
-
-        /// <summary>
         /// A toggle for fullscreen mode
         /// </summary>
         public Toggle fullscreenToggle;
+
+        /// <summary>
+        /// Track the fullscreen mode based on the toggle
+        /// </summary>
+        public FullScreenMode FullScreenMode
+        {
+            get
+            {
+                return fullscreenToggle.isOn
+                    ? FullScreenMode.FullScreenWindow
+                    : FullScreenMode.Windowed;
+            }
+        }
 
         /// <summary>
         /// A dropdown for the resolution options
@@ -32,8 +41,6 @@ namespace Menus
             // Update the resolution and quality dropdowns
             UpdateResolution();
             UpdateQuality();
-
-            settingsMenuOptions = SettingsMenuOptions.Instance;
         }
 
         /// <summary>
@@ -47,7 +54,7 @@ namespace Menus
             // Get the resolution options from the settings option singleton
             // instance, but map the resolutions to a string representation for
             // the dropdown representation
-            resolutionDropdown.AddOptions(settingsMenuOptions.Resolutions
+            resolutionDropdown.AddOptions(SettingsMenuOptions.Instance.Resolutions
                 .Select(resolution =>
                     $"{resolution.width}x{resolution.height}@{resolution.refreshRateRatio.value:0.00}Hz"
                 )
@@ -55,7 +62,7 @@ namespace Menus
             );
 
             // Set the current resolution index to the selected index
-            resolutionDropdown.value = settingsMenuOptions.SelectedResolutionIndex;
+            resolutionDropdown.value = SettingsMenuOptions.Instance.SelectedResolutionIndex;
 
             // Make sure to refresh the dropdown to show the new options
             resolutionDropdown.RefreshShownValue();
@@ -68,11 +75,15 @@ namespace Menus
         {
             // Clear the quality dropdown options
             qualityDropdown.ClearOptions();
+
             // Get the quality options from the settings option singleton instance
-            qualityDropdown.AddOptions(settingsMenuOptions.QualityLevels);
+            qualityDropdown.AddOptions(
+                Enumerable.Reverse(SettingsMenuOptions.Instance.QualityLevels)
+                .ToList()
+            );
 
             // Set the current quality index to the selected index
-            qualityDropdown.value = settingsMenuOptions.QualityIndex;
+            qualityDropdown.value = SettingsMenuOptions.Instance.SelectedQualityIndex;
 
             // Make sure to refresh the dropdown to show the new options
             qualityDropdown.RefreshShownValue();
@@ -84,7 +95,7 @@ namespace Menus
         /// <param name="resolutionIndex"></param>
         public void ChangeResolution(int resolutionIndex)
         {
-            settingsMenuOptions.SelectedResolutionIndex = resolutionIndex;
+            SettingsMenuOptions.Instance.SelectedResolutionIndex = resolutionIndex;
         }
 
         /// <summary>
@@ -93,7 +104,7 @@ namespace Menus
         /// <param name="qualityIndex"></param>
         public void ChangeQuality(int qualityIndex)
         {
-            settingsMenuOptions.QualityIndex = qualityIndex;
+            SettingsMenuOptions.Instance.SelectedQualityIndex = qualityIndex;
         }
 
         /// <summary>
@@ -102,23 +113,18 @@ namespace Menus
         public void ApplyChanges()
         {
             // Set the quality level
-            QualitySettings.SetQualityLevel(settingsMenuOptions.QualityIndex);
+            QualitySettings.SetQualityLevel(SettingsMenuOptions.Instance.SelectedQualityIndex);
 
-            // Set the resolution and framerate
-            Resolution resolution = settingsMenuOptions.Resolutions[
-                settingsMenuOptions.SelectedResolutionIndex
+            // Get the resolution from the settings options
+            Resolution resolution = SettingsMenuOptions.Instance.Resolutions[
+                SettingsMenuOptions.Instance.SelectedResolutionIndex
             ];
 
-            FullScreenMode fullScreenMode = fullscreenToggle.isOn
-                ? FullScreenMode.FullScreenWindow
-                : FullScreenMode.Windowed;
-
-            Debug.Log(fullScreenMode);
-
+            // Set the resolution and framerate
             Screen.SetResolution(
                 resolution.width,
                 resolution.height,
-                fullScreenMode,
+                FullScreenMode,
                 resolution.refreshRateRatio
             );
         }
