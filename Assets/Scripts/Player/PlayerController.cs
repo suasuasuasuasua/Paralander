@@ -6,7 +6,7 @@ namespace Player
     /// <summary>
     /// Script to control the glider plane
     /// </summary>
-    public class GliderController : MonoBehaviour
+    public class PlayerController : MonoBehaviour
     {
         /// <summary>
         /// The maximium thrust of the engine. This is the force applied to the

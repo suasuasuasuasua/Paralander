@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Player
+namespace Game
 {
     public class PlayerPause : MonoBehaviour
     {
