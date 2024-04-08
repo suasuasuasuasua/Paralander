@@ -79,7 +79,13 @@ namespace Player
         private float yaw;
 
         Rigidbody rb;
-        [SerializeField] TextMeshProUGUI hud;
+        public TextMeshProUGUI statsHud;
+        public TextMeshProUGUI currentSettings;
+
+        /// <summary>
+        /// Track the debug mode for the glider
+        /// </summary>
+        private bool Debug = false;
 
         // Called when the script object is initialised, regardless of whether
         // or not the script is enabled.
@@ -109,6 +115,12 @@ namespace Player
                 throttle -= throttleIncrement;
             }
 
+            // Toggle the debug mode
+            if (Input.GetKeyDown(KeyCode.D))
+            {
+                Debug = !Debug;
+            }
+
             throttle = Mathf.Clamp(throttle, 0f, 100f);
         }
 
@@ -118,7 +130,7 @@ namespace Player
         private void Update()
         {
             HandleInputs();
-            UpdateHUD();
+            UpdateStatsHud();
         }
 
         /// <summary>
@@ -141,13 +153,18 @@ namespace Player
         /// <summary>
         /// Update the HUD with the current throttle, airspeed, and altitude
         /// </summary>
-        private void UpdateHUD()
+        private void UpdateStatsHud()
         {
-            string text = $@"Throttle: {throttle:F0}%
+            statsHud.text = $@"Throttle: {throttle:F0}%
 Airspeed: {rb.velocity.magnitude * 3.6f:F0} km/h
 Altitude: {transform.position.y:F0} m";
 
-            hud.text = text;
+            currentSettings.text = Debug
+            ? $@"Resolution {Screen.currentResolution.width}x{Screen.currentResolution.height}
+Quality: {QualitySettings.GetQualityLevel()} [{QualitySettings.names[QualitySettings.GetQualityLevel()]}]
+VSync: {QualitySettings.vSyncCount}
+Fullscreen: {Screen.fullScreen}"
+            : "";
         }
     }
 }

@@ -127,7 +127,7 @@ namespace Menus
 
             // Get the quality options from the settings option singleton instance
             qualityDropdown.AddOptions(
-                Enumerable.Reverse(SettingsMenuOptions.Instance.QualityLevels)
+                SettingsMenuOptions.Instance.QualityLevels
                 .ToList()
             );
 
