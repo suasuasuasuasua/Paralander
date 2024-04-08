@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 using TMPro;
 
 namespace Player
@@ -8,6 +9,16 @@ namespace Player
     /// </summary>
     public class PlayerController : MonoBehaviour
     {
+        /// <summary>
+        /// The rigidbody component of the glider
+        /// </summary>
+        Rigidbody rb;
+
+        /// <summary>
+        /// The HUD for the player's stats and current settings
+        /// </summary>
+        public TextMeshProUGUI statsHud, currentSettings;
+
         /// <summary>
         /// The maximium thrust of the engine. This is the force applied to the
         /// glider when at 100% throttle. 
@@ -42,10 +53,7 @@ namespace Player
         /// </summary>
         private float ResponseModifier
         {
-            get
-            {
-                return rb.mass * responsiveness / 10.0f;
-            }
+            get { return rb.mass * responsiveness / 10.0f; }
         }
 
         /// <summary>
@@ -55,43 +63,27 @@ namespace Player
         public float lift = 135.0f;
 
         /// <summary>
-        /// Internally track the current throttle of the glider
-        /// </summary>
-        private float throttle;
-
-        /// Track the 3 different planes of rotation
+        /// Track the 3 different planes of rotation as well as the throttle
         /// 
         /// Assume that z-axis is forward, x-axis is right, and y-axis is up
-
-        /// <summary>
-        /// The roll of the glider. This is the rotation around the z-axis.
         /// </summary>
-        private float roll;
-
-        /// <summary>
-        /// The pitch of the glider. This is the rotation around the x-axis.
-        /// </summary>
-        private float pitch;
-
-        /// <summary>
-        /// The yaw of the glider. This is the rotation around the y-axis.
-        /// </summary>
-        private float yaw;
-
-        Rigidbody rb;
-        public TextMeshProUGUI statsHud;
-        public TextMeshProUGUI currentSettings;
+        private float roll, pitch, yaw, throttle;
 
         /// <summary>
         /// Track the debug mode for the glider
         /// </summary>
         private bool Debug = false;
 
+        /// <summary>
+        /// Track the input actions for the glider using Unity's new input system
+        /// </summary>
+        [SerializeField]
+        private InputActionReference rollInput, pitchInput, yawInput, throttleInput;
+
         // Called when the script object is initialised, regardless of whether
         // or not the script is enabled.
         private void Awake()
         {
-
             rb = GetComponent<Rigidbody>();
         }
 
@@ -100,7 +92,13 @@ namespace Player
         /// </summary>
         private void Update()
         {
-            HandleInputs();
+            roll = rollInput.action.ReadValue<float>();
+            pitch = pitchInput.action.ReadValue<float>();
+            yaw = yawInput.action.ReadValue<float>();
+            throttle += throttleInput.action.ReadValue<float>() * throttleIncrement;
+
+            // Clamp the throttle between 0 and 100
+            throttle = Mathf.Clamp(throttle, 0f, 100f);
         }
 
         /// <summary>
@@ -121,43 +119,6 @@ namespace Player
         }
 
         private void OnGUI()
-        {
-            UpdateStatsHud();
-        }
-
-        /// <summary>
-        /// Handle the player's inputs for the glider for thrust and rotation
-        /// </summary>
-        private void HandleInputs()
-        {
-            /// 
-            roll = Input.GetAxis("Roll");
-            pitch = Input.GetAxis("Pitch");
-            yaw = Input.GetAxis("Yaw");
-
-            // Handle throttle value being sure to clamp between 0 and 100.
-            if (Input.GetKey(KeyCode.Space))
-            {
-                throttle += throttleIncrement;
-            }
-            else if (Input.GetKey(KeyCode.LeftShift))
-            {
-                throttle -= throttleIncrement;
-            }
-
-            // Toggle the debug mode if the Shift+D is pressed
-            if (Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.D))
-            {
-                Debug = !Debug;
-            }
-
-            throttle = Mathf.Clamp(throttle, 0f, 100f);
-        }
-
-        /// <summary>
-        /// Update the HUD with the current throttle, airspeed, and altitude
-        /// </summary>
-        private void UpdateStatsHud()
         {
             statsHud.text = $@"Throttle: {throttle:F0}%
 Airspeed: {rb.velocity.magnitude * 3.6f:F0} km/h

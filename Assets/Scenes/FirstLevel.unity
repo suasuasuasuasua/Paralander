@@ -859,7 +859,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'FPS: 1.67 (598.46 ms)'
+  m_text: 'FPS: 3.23 (309.74 ms)'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1735,6 +1735,7 @@ GameObject:
   - component: {fileID: 1187778774}
   - component: {fileID: 1187778773}
   - component: {fileID: 1187778775}
+  - component: {fileID: 1187778776}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1792,12 +1793,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65477b0391eb54730ae113ea4f47ca4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  statsHud: {fileID: 1427504881}
+  currentSettings: {fileID: 1744569337}
   maxThrust: 200
   throttleIncrement: 0.1
   responsiveness: 80
   lift: 135
-  statsHud: {fileID: 1427504881}
-  currentSettings: {fileID: 1744569337}
+  rollInput: {fileID: -1481334379121099344, guid: 25eb0b903df824fb6bb74ea6f3f8214c,
+    type: 3}
+  pitchInput: {fileID: -3662754241083446666, guid: 25eb0b903df824fb6bb74ea6f3f8214c,
+    type: 3}
+  yawInput: {fileID: 3001845071539686265, guid: 25eb0b903df824fb6bb74ea6f3f8214c,
+    type: 3}
+  throttleInput: {fileID: 9149672269243979153, guid: 25eb0b903df824fb6bb74ea6f3f8214c,
+    type: 3}
 --- !u!54 &1187778772
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1860,6 +1869,113 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 564361fbda4ee498183673fc14c64edf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1187778776
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1187778767}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: 25eb0b903df824fb6bb74ea6f3f8214c,
+    type: 3}
+  m_NotificationBehavior: 0
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 57d15111-f4ec-44f6-a250-4ba7bb293d82
+    m_ActionName: Player/Roll[/Keyboard/q,/Keyboard/e]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 1a5d0eea-ee93-4653-b7e4-ad13fba6f3ca
+    m_ActionName: Player/Pitch[/Keyboard/w,/Keyboard/s]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 0fdb3d55-ee4c-4db4-8d23-08f6f8cce934
+    m_ActionName: Player/Yaw[/Keyboard/a,/Keyboard/d]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: f4793c79-78bc-4448-9420-d68193d3f9de
+    m_ActionName: Player/Throttle[/Keyboard/space,/Keyboard/leftShift]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: d40db9f6-ddf1-4c62-9a86-96d97b4cfd4d
+    m_ActionName: UI/New action
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: Keyboard&Mouse
+  m_DefaultActionMap: Player
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
+--- !u!1 &1388676423
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1388676424}
+  - component: {fileID: 1388676425}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1388676424
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1388676423}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 99.40748, y: 304.0773, z: -5.1473103}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1388676425
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1388676423}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10c504577b9934a4d8b41fc90469591d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1427504879
@@ -2715,8 +2831,9 @@ SceneRoots:
   m_Roots:
   - {fileID: 1923285865}
   - {fileID: 736037404}
+  - {fileID: 1388676424}
+  - {fileID: 117821469}
   - {fileID: 833424456}
   - {fileID: 1696025194}
   - {fileID: 1187778768}
   - {fileID: 475486298}
-  - {fileID: 117821469}
