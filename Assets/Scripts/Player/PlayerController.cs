@@ -96,6 +96,36 @@ namespace Player
         }
 
         /// <summary>
+        /// Update the glider's physics and HUD
+        /// </summary>
+        private void Update()
+        {
+            HandleInputs();
+        }
+
+        /// <summary>
+        /// Fixed update to handle physics (avoids weird things in physics)
+        /// </summary>
+        private void FixedUpdate()
+        {
+            // Apply forces to our glider
+            rb.AddForce(transform.forward * maxThrust * throttle);
+
+            // Adds rotational force to glider
+            rb.AddTorque(transform.up * yaw * ResponseModifier);
+            rb.AddTorque(transform.right * pitch * ResponseModifier);
+            rb.AddTorque(-transform.forward * roll * ResponseModifier);
+
+            // Get off ground! just press space
+            rb.AddForce(Vector3.up * rb.velocity.magnitude * lift);
+        }
+
+        private void OnGUI()
+        {
+            UpdateStatsHud();
+        }
+
+        /// <summary>
         /// Handle the player's inputs for the glider for thrust and rotation
         /// </summary>
         private void HandleInputs()
@@ -115,39 +145,13 @@ namespace Player
                 throttle -= throttleIncrement;
             }
 
-            // Toggle the debug mode
-            if (Input.GetKeyDown(KeyCode.D))
+            // Toggle the debug mode if the Shift+D is pressed
+            if (Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.D))
             {
                 Debug = !Debug;
             }
 
             throttle = Mathf.Clamp(throttle, 0f, 100f);
-        }
-
-        /// <summary>
-        /// Update the glider's physics and HUD
-        /// </summary>
-        private void Update()
-        {
-            HandleInputs();
-            UpdateStatsHud();
-        }
-
-        /// <summary>
-        /// Fixed update to handle physics (avoids weird things in physics)
-        /// </summary>
-        private void FixedUpdate()
-        {
-            // Apply forces to our glider
-            rb.AddForce(transform.forward * maxThrust * throttle);
-
-            // Adds rotational force to glider
-            rb.AddTorque(transform.up * yaw * ResponseModifier);
-            rb.AddTorque(transform.right * pitch * ResponseModifier);
-            rb.AddTorque(-transform.forward * roll * ResponseModifier);
-
-            // Get off ground! just press space
-            rb.AddForce(Vector3.up * rb.velocity.magnitude * lift);
         }
 
         /// <summary>

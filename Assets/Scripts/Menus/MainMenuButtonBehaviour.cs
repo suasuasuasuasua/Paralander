@@ -1,9 +1,9 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace UI
+namespace Menus
 {
-    public class ButtonBehavior : MonoBehaviour
+    public class MainMenuButtonBehaviour : MonoBehaviour
     {
         /// <summary>
         /// Load a scene by name.

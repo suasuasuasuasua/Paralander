@@ -25,10 +25,13 @@ namespace Player
             if (other.transform.tag == "Target")
             {
                 score += targetValue;
-                scoreText.text = $"Score: {score:F0}";
-
                 Destroy(other.gameObject);
             }
+        }
+
+        private void OnGUI()
+        {
+            scoreText.text = $"Score: {score:F0}";
         }
     }
 }

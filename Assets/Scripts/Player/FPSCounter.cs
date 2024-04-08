@@ -2,7 +2,7 @@ using TMPro;
 using UnityEngine;
 using System;
 
-namespace UI
+namespace Player
 {
     /// <summary>
     /// An FPS counter
@@ -21,7 +21,7 @@ namespace UI
         /// </summary>
         public float FrameMS { get; private set; }
 
-        GUIStyle style = new();
+        readonly GUIStyle style = new();
 
         public int size = 16;
 
