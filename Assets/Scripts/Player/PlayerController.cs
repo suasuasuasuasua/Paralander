@@ -70,11 +70,6 @@ namespace Player
         private float roll, pitch, yaw, throttle;
 
         /// <summary>
-        /// Track the debug mode for the glider
-        /// </summary>
-        private bool Debug = false;
-
-        /// <summary>
         /// Track the input actions for the glider using Unity's new input system
         /// </summary>
         [SerializeField]
@@ -85,6 +80,22 @@ namespace Player
         private void Awake()
         {
             rb = GetComponent<Rigidbody>();
+        }
+
+        private void OnEnable()
+        {
+            rollInput.action.Enable();
+            pitchInput.action.Enable();
+            yawInput.action.Enable();
+            throttleInput.action.Enable();
+        }
+
+        private void OnDisable()
+        {
+            rollInput.action.Disable();
+            pitchInput.action.Disable();
+            yawInput.action.Disable();
+            throttleInput.action.Disable();
         }
 
         /// <summary>
@@ -123,13 +134,6 @@ namespace Player
             statsHud.text = $@"Throttle: {throttle:F0}%
 Airspeed: {rb.velocity.magnitude * 3.6f:F0} km/h
 Altitude: {transform.position.y:F0} m";
-
-            currentSettings.text = Debug
-            ? $@"Resolution {Screen.currentResolution.width}x{Screen.currentResolution.height}
-Quality: {QualitySettings.GetQualityLevel()} [{QualitySettings.names[QualitySettings.GetQualityLevel()]}]
-VSync: {QualitySettings.vSyncCount}
-Fullscreen: {Screen.fullScreen}"
-            : "";
         }
     }
 }

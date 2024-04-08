@@ -182,9 +182,9 @@
             "id": "c8113e7c-ed1d-4a4d-814e-4aae33ce4717",
             "actions": [
                 {
-                    "name": "New action",
+                    "name": "Debug",
                     "type": "Button",
-                    "id": "d40db9f6-ddf1-4c62-9a86-96d97b4cfd4d",
+                    "id": "dd2f093b-4d21-440d-b734-4581a884fd8b",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -193,15 +193,37 @@
             ],
             "bindings": [
                 {
-                    "name": "",
-                    "id": "02b42572-c7e9-4af8-9ea5-ea47e5fd4b1c",
-                    "path": "",
+                    "name": "One Modifier",
+                    "id": "0af53a04-cc2a-47a7-9141-c551b781719d",
+                    "path": "OneModifier",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "New action",
-                    "isComposite": false,
+                    "action": "Debug",
+                    "isComposite": true,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "modifier",
+                    "id": "0faf6f0c-83c4-413c-aa17-b4ec755fd6e3",
+                    "path": "<Keyboard>/leftShift",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "Debug",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "binding",
+                    "id": "6b8f4ef2-853a-49aa-8a27-f186ffda70b9",
+                    "path": "<Keyboard>/d",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "Debug",
+                    "isComposite": false,
+                    "isPartOfComposite": true
                 }
             ]
         }
