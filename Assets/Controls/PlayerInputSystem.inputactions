@@ -178,13 +178,22 @@
             ]
         },
         {
-            "name": "UI",
+            "name": "Game",
             "id": "c8113e7c-ed1d-4a4d-814e-4aae33ce4717",
             "actions": [
                 {
                     "name": "Debug",
                     "type": "Button",
                     "id": "dd2f093b-4d21-440d-b734-4581a884fd8b",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Pause",
+                    "type": "Button",
+                    "id": "51db76a0-3f9c-4c7e-a80f-f87f9c34a0a4",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -224,6 +233,17 @@
                     "action": "Debug",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "3196e8f0-70c1-4bed-a9a4-da3b55154ed0",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Pause",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }

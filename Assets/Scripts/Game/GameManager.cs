@@ -6,64 +6,91 @@ namespace Game
 {
     public class GameManager : MonoBehaviour
     {
-        /// <summary>
-        /// Enforce a singleton pattern with the game manager
-        /// </summary>
-        public static GameManager Instance { get; private set; }
+        public GameObject pauseHUDPanel, settingsMenuPanel;
 
-        public bool IsGamePaused { get; private set; } = false;
+        public TextMeshProUGUI currentSettings;
+
+        /// <summary>
+        /// Track the actions for the game using Unity's new input system
+        /// 
+        /// https://docs.unity3d.com/Packages/com.unity.inputsystem@1.8/manual/index.html
+        /// </summary>
+        [SerializeField]
+        private InputActionReference debugInput, pauseInput;
+
+        /// <summary>
+        /// Track if the game is paused
+        /// </summary>
+        public bool IsGamePaused { get; set; } = false;
 
         /// <summary>
         /// Track the debug mode for the game
         /// </summary>
         public bool DebugMode { get; private set; } = false;
-        public TextMeshProUGUI currentSettings;
-
-        /// <summary>
-        /// Track the input actions for the glider using Unity's new input system
-        /// https://docs.unity3d.com/Packages/com.unity.inputsystem@1.8/manual/index.html
-        /// </summary>
-        [SerializeField]
-        private InputActionReference debugInput;
-
-        void Awake()
-        {
-            // Ensure that there is only one instance of the game manager
-            if (Instance == null)
-            {
-                Instance = this;
-            }
-            else
-            {
-                Destroy(gameObject);
-            }
-
-            DontDestroyOnLoad(this);
-        }
 
         void OnEnable()
         {
             debugInput.action.Enable();
+            pauseInput.action.Enable();
         }
 
         void OnDisable()
         {
             debugInput.action.Disable();
+            pauseInput.action.Disable();
         }
 
         // Update is called once per frame
         void Update()
         {
-            debugInput.action.performed += ctx => DebugMode = !DebugMode;
+            // Toggle debug mode when Shift+D is pressed
+            debugInput.action.performed += _ => ToggleDebugMode();
+
+            // Toggle pause when Escape is pressed
+            pauseInput.action.performed += _ => TogglePause();
         }
 
-        void OnGUI()
+
+        public void ToggleDebugMode()
+        {
+            DebugMode = !DebugMode;
+        }
+
+        public void TogglePause()
+        {
+            IsGamePaused = !IsGamePaused;
+            Cursor.visible = IsGamePaused;
+            Cursor.lockState = IsGamePaused
+                ? CursorLockMode.None
+                : CursorLockMode.Locked;
+
+            TogglePauseInput();
+
+            // Show the pause HUD when the game is paused and freeze the
+            // game
+            pauseHUDPanel.SetActive(IsGamePaused);
+            Time.timeScale = IsGamePaused ? 0 : 1;
+        }
+
+        public void TogglePauseInput()
+        {
+            if (settingsMenuPanel.activeInHierarchy)
+            {
+                pauseInput.action.Disable();
+            }
+            else
+            {
+                pauseInput.action.Enable();
+            }
+        }
+
+        private void OnGUI()
         {
             currentSettings.text = DebugMode
                 ? $@"Resolution {Screen.currentResolution.width}x{Screen.currentResolution.height}
-    Quality: {QualitySettings.GetQualityLevel()} [{QualitySettings.names[QualitySettings.GetQualityLevel()]}]
-    VSync: {QualitySettings.vSyncCount}
-    Fullscreen: {Screen.fullScreen}"
+Quality: {QualitySettings.names[QualitySettings.GetQualityLevel()]} [{QualitySettings.GetQualityLevel()}]
+VSync: {QualitySettings.vSyncCount}
+Fullscreen: {Screen.fullScreen}"
                 : "";
         }
     }
