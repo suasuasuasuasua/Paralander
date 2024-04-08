@@ -1,9 +1,9 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace UI
+namespace Menus
 {
-    public class ButtonBehavior : MonoBehaviour
+    public class ButtonBehaviour : MonoBehaviour
     {
         /// <summary>
         /// Load a scene by name.
@@ -14,9 +14,7 @@ namespace UI
         /// <param name="name"></param>
         public void LoadScene(string name)
         {
-            // Use the asynchronous version to avoid pauses and perfomrance
-            // hiccups
-            SceneManager.LoadSceneAsync(name);
+            SceneManager.LoadScene(name);
         }
 
         /// <summary>
