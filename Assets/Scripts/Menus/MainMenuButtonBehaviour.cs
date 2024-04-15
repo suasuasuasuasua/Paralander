@@ -3,7 +3,7 @@ using UnityEngine.SceneManagement;
 
 namespace Menus
 {
-    public class ButtonBehaviour : MonoBehaviour
+    public class MainMenuButtonBehaviour : MonoBehaviour
     {
         /// <summary>
         /// Load a scene by name.
@@ -14,7 +14,9 @@ namespace Menus
         /// <param name="name"></param>
         public void LoadScene(string name)
         {
-            SceneManager.LoadScene(name);
+            // Use the asynchronous version to avoid pauses and perfomrance
+            // hiccups
+            SceneManager.LoadSceneAsync(name);
         }
 
         /// <summary>

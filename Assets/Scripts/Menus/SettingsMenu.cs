@@ -8,6 +8,8 @@ namespace Menus
 {
     public class SettingsMenu : MonoBehaviour
     {
+        public GameObject settingsPanel;
+
         // TODO: actually make the sliders change the volume
         /// <summary>
         /// A slider for the volume
@@ -69,6 +71,14 @@ namespace Menus
             UpdateQuality();
 
             ApplyChanges();
+        }
+
+        private void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                settingsPanel.SetActive(false);
+            }
         }
 
         /// <summary>
