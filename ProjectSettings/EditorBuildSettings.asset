@@ -17,10 +17,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/LoseScene.unity
     guid: 801bdf8940956491a8b83068f39ca3eb
-  - enabled: 1
-    path: Assets/Scenes/PauseScene.unity
-    guid: 7887c9558dec04d3a8f07a301aee0642
-  - enabled: 1
-    path: Assets/Scenes/SettingsMenu.unity
-    guid: a3c5073d22d2c413bb7720fa561e3cb8
-  m_configObjects: {}
+  m_configObjects:
+    com.unity.input.settings: {fileID: 11400000, guid: a6fc1bac8f2874e6b80da63a90375bdc,
+      type: 2}

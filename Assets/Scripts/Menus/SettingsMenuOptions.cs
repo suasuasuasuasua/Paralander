@@ -8,6 +8,9 @@ namespace Menus
 {
     public class SettingsMenuOptions : MonoBehaviour
     {
+        /// <summary>
+        /// Enforce a singleton pattern with the settings menu options
+        /// </summary>
         public static SettingsMenuOptions Instance { get; private set; }
 
         /// <summary>
