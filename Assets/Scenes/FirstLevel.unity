@@ -530,7 +530,7 @@ GameObject:
   - component: {fileID: 117821467}
   - component: {fileID: 117821470}
   - component: {fileID: 117821471}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: MeshGeneratorV2
   m_TagString: Terrain
   m_Icon: {fileID: 0}
@@ -1330,7 +1330,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'FPS: 5.31 (188.26 ms)'
+  m_text: 'FPS: .00 (.00 ms)'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2622,6 +2622,11 @@ PrefabInstance:
         type: 3}
       propertyPath: orthographic size
       value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 2624355097593108214, guid: d03923f8cce264a3bb9d0bed60be2cdb,
+        type: 3}
+      propertyPath: m_CullingMask.m_Bits
+      value: 192
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
