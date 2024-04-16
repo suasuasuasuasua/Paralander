@@ -550,9 +550,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objects:
-  - {fileID: 100000, guid: 5b63de927760304438a3c6ac347846d5, type: 3}
-  - {fileID: 100000, guid: 6e616e7bf46c26748a153fac2d7b1293, type: 3}
-  - {fileID: 100000, guid: 1168e432e0c205345b90c4ec2f307c97, type: 3}
+  - {fileID: 6237576162113328957, guid: 80b2ffb90782a4095a42756f1cfc636d, type: 3}
+  - {fileID: 6197561539398986395, guid: 4f7e51dcd0198422ba07305101c3cf94, type: 3}
+  - {fileID: 4742739334018288125, guid: afe26a09d98f64cb69753d5d6ec77074, type: 3}
   heightCurve:
     serializedVersion: 2
     m_Curve:
@@ -1330,7 +1330,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'FPS: .70 (1436.68 ms)'
+  m_text: 'FPS: 5.31 (188.26 ms)'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -3458,6 +3458,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e29f0946d441402bbaecf7b37edc413, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  clip: {fileID: 8300000, guid: 52320e590bf774734a288886eba557ba, type: 3}
   scoreText: {fileID: 377330589}
 --- !u!114 &1187778774
 MonoBehaviour:
@@ -3557,8 +3558,8 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 6991b4544ffb241f78c75df12c46c860, type: 3}
-  m_PlayOnAwake: 0
-  m_Volume: 1
+  m_PlayOnAwake: 1
+  m_Volume: 0.59
   m_Pitch: 1
   Loop: 0
   Mute: 0
