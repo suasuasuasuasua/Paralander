@@ -1,6 +1,9 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.InputSystem;
+using System.Collections;
 using TMPro;
+using UnityEngine.UIElements;
 
 namespace Player
 {
@@ -9,6 +12,10 @@ namespace Player
     /// </summary>
     public class PlayerController : MonoBehaviour
     {
+        private bool isGameOver = false; // Flag to control game state
+
+        public AudioClip clip;
+
         /// <summary>
         /// The rigidbody component of the glider
         /// </summary>
@@ -103,6 +110,7 @@ namespace Player
         /// </summary>
         private void Update()
         {
+            if (isGameOver) return;
             roll = rollInput.action.ReadValue<float>();
             pitch = pitchInput.action.ReadValue<float>();
             yaw = yawInput.action.ReadValue<float>();
@@ -117,6 +125,7 @@ namespace Player
         /// </summary>
         private void FixedUpdate()
         {
+            if (isGameOver) return;
             // Apply forces to our glider
             rb.AddForce(transform.forward * maxThrust * throttle);
 
@@ -128,6 +137,34 @@ namespace Player
             // Get off ground! just press space
             rb.AddForce(Vector3.up * rb.velocity.magnitude * lift);
         }
+
+        private void OnCollisionEnter(Collision collision)
+        {
+            // Check if the collided object has the tag "Terrain"
+            if (collision.gameObject.CompareTag("Terrain"))
+            {
+                isGameOver = true;
+                // Display Game Over screen
+                //SoundFXManager.instance.PlaySoundFXClip(clip, transform, 1f);
+                GameOver();
+            }
+        }
+
+
+        private void GameOver()
+        {
+            float clipLength = SoundFXManager.instance.PlaySoundFXClipReturn(clip, transform, 1.0f);
+            StartCoroutine(DelayedGameOver(clipLength));
+        }
+
+        private IEnumerator DelayedGameOver(float delay)
+        {
+            yield return new WaitForSeconds(delay);
+            SceneManager.LoadScene("GameOverScene");
+        }
+
+
+
 
         private void OnGUI()
         {
