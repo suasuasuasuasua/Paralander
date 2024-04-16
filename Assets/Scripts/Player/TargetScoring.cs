@@ -5,6 +5,7 @@ namespace Player
 {
     public class TargetScoring : MonoBehaviour
     {
+        public AudioClip clip;
         /// <summary>
         /// Track the player's score
         /// </summary>
@@ -24,6 +25,7 @@ namespace Player
         {
             if (other.transform.tag == "Target")
             {
+                SoundFXManager.instance.PlaySoundFXClip(clip, transform, 1.0f);
                 score += targetValue;
                 Destroy(other.gameObject);
             }
