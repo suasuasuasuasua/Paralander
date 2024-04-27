@@ -35,14 +35,14 @@ namespace Player
         /// <see cref="https://en.wikipedia.org/wiki/Thrust"/>
         /// </summary>
         [Tooltip("Maximum engine thrust when at 100% throttle")]
-        public float maxThrust = 200.0f;
+        public float maxThrust = 400.0f;  
 
         /// <summary>
         /// How much throttle goes up or down
         /// </summary>
         [Header("Plane Stats")]
         [Tooltip("How much the throttle rampus up or down")]
-        public float throttleIncrement = 1.0f;
+        public float throttleIncrement = 3.0f;
 
         /// <summary>
         /// Determines the responsiveness of the glider to the player's input.
@@ -51,7 +51,7 @@ namespace Player
         /// be more "twitchy" so to speak.
         /// </summary>
         [Tooltip("Responsiveness")]
-        public float responsiveness = 80.0f;
+        public float responsiveness = 90.0f;
 
         /// <summary>
         /// A calculated value that determines how much the glider responds to

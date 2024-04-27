@@ -1330,7 +1330,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'FPS: .95 (1049.08 ms)'
+  m_text: 'FPS: 17.86 (55.98 ms)'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1809,7 +1809,7 @@ Transform:
   m_GameObject: {fileID: 475486297}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2350, y: 2530, z: 0}
+  m_LocalPosition: {x: 2350, y: 1530, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3413,8 +3413,8 @@ MonoBehaviour:
   statsHud: {fileID: 1427504881}
   currentSettings: {fileID: 1744569337}
   maxThrust: 200
-  throttleIncrement: 0.1
-  responsiveness: 80
+  throttleIncrement: 0.3
+  responsiveness: 90
   lift: 135
   rollInput: {fileID: -1481334379121099344, guid: 25eb0b903df824fb6bb74ea6f3f8214c,
     type: 3}

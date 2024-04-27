@@ -17,6 +17,14 @@ namespace Player
         private const int targetValue = 50;
         public TextMeshProUGUI scoreText;
 
+        public float magnetStrength = 300f;
+        public float magnetRange = 100f;
+
+        private void Update()
+        {
+            AttractTargets();
+        }
+
         /// <summary>
         /// If the player collides with a target, then the player gets 50 points
         /// </summary>
@@ -30,6 +38,28 @@ namespace Player
                 Destroy(other.gameObject);
             }
         }
+
+        private void AttractTargets()
+        {
+            // Detect all colliders within the magnet range
+            Collider[] targets = Physics.OverlapSphere(transform.position, magnetRange);
+            // Iterate over each collider
+            foreach (Collider target in targets)
+            {
+                if (target.tag == "Target")  // Check if it has the "Target" tag
+                {
+                    Rigidbody targetRigidbody = target.GetComponent<Rigidbody>();
+
+                    // Calculate force direction from target to magnet
+                    Vector3 forceDirection = transform.position - target.transform.position;
+
+                    // Apply force to the target's Rigidbody
+                    targetRigidbody.AddForce(forceDirection.normalized * magnetStrength * Time.deltaTime);
+                
+                }
+            }
+        }
+
 
         private void OnGUI()
         {
