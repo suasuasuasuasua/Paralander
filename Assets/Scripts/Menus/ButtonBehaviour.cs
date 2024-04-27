@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System;
 
 namespace Menus
 {
@@ -14,7 +15,16 @@ namespace Menus
         /// <param name="name"></param>
         public void LoadScene(string name)
         {
-            SceneManager.LoadScene(name);
+            try
+            {
+                Debug.Log("Attempting to load scene: " + name);
+                SceneManager.LoadScene(name);
+                Debug.Log("Scene load command sent");
+            }
+            catch (Exception ex)
+            {
+                Debug.LogError("Failed to load scene: " + ex.ToString());
+            }
         }
 
         /// <summary>

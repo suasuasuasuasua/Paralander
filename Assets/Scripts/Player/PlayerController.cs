@@ -153,6 +153,8 @@ namespace Player
 
         private void GameOver()
         {
+            UnityEngine.Cursor.visible = true;
+            UnityEngine.Cursor.lockState = UnityEngine.CursorLockMode.None;
             float clipLength = SoundFXManager.instance.PlaySoundFXClipReturn(clip, transform, 1.0f);
             StartCoroutine(DelayedGameOver(clipLength));
         }
