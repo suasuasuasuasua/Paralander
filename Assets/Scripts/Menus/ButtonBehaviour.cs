@@ -6,6 +6,8 @@ namespace Menus
 {
     public class ButtonBehaviour : MonoBehaviour
     {
+        public GameObject tutorialPanel;
+
         /// <summary>
         /// Load a scene by name.
         /// 
@@ -25,6 +27,20 @@ namespace Menus
             {
                 Debug.LogError("Failed to load scene: " + ex.ToString());
             }
+        }
+
+        /// <summary>
+        /// Accept the tutorial and make the mouse go away
+        /// </summary>
+        public void AcceptTutorial()
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+
+            // Make the tutorial panel invisible
+            tutorialPanel.SetActive(false);
+
+            Time.timeScale = 1;
         }
 
         /// <summary>

@@ -7,7 +7,6 @@ namespace Game
     public class GameManager : MonoBehaviour
     {
         public GameObject pauseHUDPanel, settingsMenuPanel;
-
         public TextMeshProUGUI currentSettings;
 
         /// <summary>
@@ -27,6 +26,17 @@ namespace Game
         /// Track the debug mode for the game
         /// </summary>
         public bool DebugMode { get; private set; } = false;
+
+        /// <summary>
+        /// Make the cursor visible on start
+        /// </summary>
+        void Start()
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+
+            Time.timeScale = 0;
+        }
 
         void OnEnable()
         {
