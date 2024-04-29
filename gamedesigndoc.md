@@ -3,7 +3,17 @@ layout: page
 title: Game Design Document
 ---
 
+![Cover Art]({{ '/assets/img/new_cover_art.png' | relative_url }})
+
 > Escape to RNG Terrain
+
+All work Copyright ©2024 by James Vongphasouk and Justin Hoang
+
+Written by James Vongphasouk and Justin Hoang
+
+Version 1
+
+Sunday, April 26, 2024
 
 ## Table of Contents
 
@@ -31,16 +41,6 @@ title: Game Design Document
 
 - [Justin Hoang](mailto:justinhoang@mines.edu)
 - [James Vongphasouk](mailto:jvongphasouk@mines.edu)
-
-![Cover Art]({{ '/assets/img/new_cover_art.png' | relative_url }})
-
-All work Copyright ©2024 by James Vongphasouk and Justin Hoang
-
-Written by James Vongphasouk and Justin Hoang
-
-Version 1
-
-Sunday, April 26, 2024
 
 ## 1. Executive Summary
 
